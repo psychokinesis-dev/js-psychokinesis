@@ -1,0 +1,31 @@
+{
+  "name": "psychokinesis",
+  "version": "1.0.0",
+  "description": "A decentralized HTTP Server.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/istanbul/lib/cli.js cover test/get-post.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psychokinesis-dev/js-psychokinesis.git"
+  },
+  "keywords": [
+    "p2p"
+  ],
+  "author": "covertness",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.2",
+    "dht-store": "^1.1.0",
+    "dns-socket": "^1.4.1",
+    "http2": "psychokinesis-dev/node-http2",
+    "lodash": "^4.10.0",
+    "reconnect-net": "^1.0.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.3",
+    "tape": "^4.5.1"
+  }
+}
