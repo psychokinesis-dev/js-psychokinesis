@@ -1,4 +1,8 @@
 # js-psychokinesis
+[![Build Status](https://travis-ci.org/psychokinesis-dev/js-psychokinesis.svg?branch=master)](https://travis-ci.org/psychokinesis-dev/js-psychokinesis)
+[![Coverage Status](https://coveralls.io/repos/psychokinesis-dev/js-psychokinesis/badge.svg)](https://coveralls.io/r/psychokinesis-dev/js-psychokinesis)
+[![npm version](https://badge.fury.io/js/psychokinesis.svg)](http://badge.fury.io/js/psychokinesis)
+![Downloads](https://img.shields.io/npm/dm/psychokinesis.svg?style=flat)
 
 去中心化的 HTTP 服务器，基于 DHT 、 HTTP/2 。
 
