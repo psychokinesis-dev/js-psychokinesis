@@ -1,6 +1,6 @@
 {
   "name": "psychokinesis",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A decentralized HTTP Server.",
   "main": "lib/index.js",
   "scripts": {
@@ -15,6 +15,9 @@
   ],
   "author": "covertness",
   "license": "MIT",
+  "engines" : {
+    "node" : ">=5.3.0"
+  },
   "dependencies": {
     "async": "^1.5.2",
     "dht-store": "^1.1.0",
