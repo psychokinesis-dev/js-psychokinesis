@@ -16,7 +16,7 @@ test('http get', (t) => {
         
         t.equal(host[0], domain);
         t.equal(req.method, 'GET');
-        t.equal(req.url, '/');
+        t.equal(req.url, '/test');
         
         resp.end('ok');
     });
@@ -29,7 +29,7 @@ test('http get', (t) => {
                 host: domain,
                 port: 8181,
                 method: 'GET',
-                path: '/'
+                path: '/test'
             }, (response) => {
                 response.setEncoding('utf8');
                 response.on('data', (chunk) => {
@@ -58,7 +58,7 @@ test('http post', (t) => {
         
         t.equal(host[0], domain);
         t.equal(req.method, 'POST');
-        t.equal(req.url, '/');
+        t.equal(req.url, '/test');
         
         req.setEncoding('utf8');
         req.on('data', (chunk) => {
@@ -77,7 +77,7 @@ test('http post', (t) => {
                     host: domain,
                     port: 8181,
                     method: 'POST',
-                    path: '/'
+                    path: '/test'
                 }, (response) => {
                     response.setEncoding('utf8');
                     response.on('data', (chunk) => {
