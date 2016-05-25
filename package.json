@@ -1,6 +1,6 @@
 {
   "name": "psychokinesis",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A decentralized HTTP Server.",
   "main": "lib/index.js",
   "scripts": {
