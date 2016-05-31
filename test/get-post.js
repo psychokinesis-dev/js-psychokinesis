@@ -96,6 +96,45 @@ test('http post', (t) => {
 });
 
 
+test('http get with path domain', (t) => {
+    t.plan(5);
+    t.timeoutAfter(5000);
+    
+    let domain = 'path-domain.com';
+    
+    let server = psychokinesis.createServer({domain: domain}, (req, resp) => {
+        t.equal(req.method, 'GET');
+        t.equal(req.url, '/' + domain + '/test');
+        
+        resp.end('ok');
+    });
+    
+    server.on('ready', () => {
+        server.listen('127.0.0.1', 8181, () => {
+            t.ok(true, 'server up');
+            
+            let getReq = http.request({
+                host: '127.0.0.1',
+                port: 8181,
+                method: 'GET',
+                path: '/' + domain + '/test'
+            }, (response) => {
+                response.setEncoding('utf8');
+                response.on('data', (chunk) => {
+                    t.equal(chunk, 'ok');
+                    
+                    server.destroy(() => {
+                        t.ok(true, 'server down');
+                    });
+                });
+            });
+
+            getReq.end();
+        });
+    });
+});
+
+
 test('http get across nodes', (t) => {
     t.plan(8);
     t.timeoutAfter(5000);
