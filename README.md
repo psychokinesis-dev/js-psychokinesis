@@ -10,6 +10,10 @@
 - P2P 节点间功能相同，地位相等
 - 支持 NAT 内网节点也可建立对外的 HTTP 服务
 
+## 优势
+- 完全分散的数据。传统 C/S 架构需要将数据放置于 Server 端存储， 数据的控制权最终在于少数的 Server 节点，而 Psychokinesis 网络中数据完全存储于本地，不存在特权节点。
+- 极易扩展。Psychokinesis 网络中所有节点均有完全的功能，任一节点都可作为网络的入口。
+
 ## 安装
 1. Node.js：版本 >= v5.3.0
 2. `npm install psychokinesis`
@@ -21,8 +25,7 @@
 var psychokinesis = require('psychokinesis');
 
 let server = psychokinesis.createServer({
-    domain: 'publicnode.com',
-    enableDns: true
+    domain: 'publicnode.com'
 }, (req, resp) => {
     resp.end('hello world');
 });
@@ -33,6 +36,6 @@ server.on('ready', () => {
     });
 });
 ```
-请使用管理员权限运行上述脚本，然后修改本机的 DNS 地址为 127.0.0.1，完成后即可使用浏览器访问 http://publicnode.com:8181/ 。
+完成后即可使用浏览器访问 http://127.0.0.1:8181/publicnode.com/ 。
 
 更多示例可查看 examples 目录。
