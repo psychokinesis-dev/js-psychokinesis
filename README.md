@@ -14,6 +14,12 @@
 - 完全分散的数据。传统 C/S 架构需要将数据放置于 Server 端存储， 数据的控制权最终在于少数的 Server 节点，而 Psychokinesis 网络中数据完全存储于本地，不存在特权节点。
 - 极易扩展。Psychokinesis 网络中所有节点均有完全的功能，任一节点都可作为网络的入口。
 
+## 快速开始
+1. `npm install psychokinesis -g`
+2. 启动一个独立的节点：`psychokinesis test.psy -d 8181 -p 18181 -l 127.0.0.1`
+
+更多用法可查看帮助：`psychokinesis --help`
+
 ## 安装
 1. Node.js：版本 >= v5.3.0
 2. `npm install psychokinesis`

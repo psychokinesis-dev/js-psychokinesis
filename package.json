@@ -6,6 +6,9 @@
   "scripts": {
     "test": "./node_modules/istanbul/lib/cli.js cover test/get-post.js"
   },
+  "bin": {
+    "psychokinesis": "./bin/psychokinesis"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/psychokinesis-dev/js-psychokinesis.git"
@@ -15,11 +18,12 @@
   ],
   "author": "covertness",
   "license": "MIT",
-  "engines" : {
-    "node" : ">=5.3.0"
+  "engines": {
+    "node": ">=5.3.0"
   },
   "dependencies": {
     "async": "^1.5.2",
+    "commander": "^2.9.0",
     "dht-store": "^1.1.0",
     "dns-socket": "^1.4.1",
     "http2": "psychokinesis-dev/node-http2",

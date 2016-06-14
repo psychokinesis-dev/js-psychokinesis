@@ -1,0 +1,80 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const psychokinesis = require('../lib');
+const commander = require('commander');
+const pkg = require('../package.json');
+
+let identification = undefined;
+
+commander.version(pkg.version)
+	.arguments('<identification-name>')
+	.option('-v --version', 'get version')
+	.option('-d --dht-port <port>', 'dht port', parseInt)
+	.option('-p --proxy-port <port>', 'proxy port', parseInt)
+	.option('-l --local-ip <ip>', 'local ip')
+	.option('-n --name-server', 'enable dns server')
+	.option('--entry-host <hostname>', 'entry node\'s host')
+	.option('--entry-dht-port <port>', 'entry node\'s dht port', parseInt)
+	.option('--entry-proxy-port <port>', 'entry node\'s proxy port', parseInt)
+	.action((i) => {
+		identification = i;
+	});
+
+commander.on('--help', () => {
+	console.log('  Basic Examples:');
+	console.log('');
+	console.log('    Start a public node :');
+	console.log('    $ psychokinesis test.psy -d 8181 -p 18181 -l 127.0.0.1');
+	console.log('');
+	console.log('    Start a public node with others :');
+	console.log('    $ psychokinesis test.psy -n -d 8181 -p 18181 -l 192.168.0.1 --entry-host 192,168.0.2 --entry-dht-port 8181');
+	console.log('');
+	console.log('    Start a private node :');
+	console.log('    $ psychokinesis test.psy --entry-host 192.168.0.1 --entry-proxy-port 18181');
+	console.log('');
+	console.log('');
+});
+
+commander.parse(process.argv);
+
+if (typeof identification === 'undefined') {
+	commander.outputHelp();
+	return;
+}
+
+let server = psychokinesis.createServer({
+    domain: identification,
+    enableDns: commander.nameServer,
+    entryNode: {
+        host: commander.entryHost,
+        dhtPort: commander.entryDhtPort,
+        proxyPort: commander.entryProxyPort
+    }
+}, (req, resp) => {
+    resp.end('hello world from ' + identification);
+});
+
+server.on('ready', () => {
+	if (commander.localIp && commander.dhtPort) {
+		server.listen(commander.localIp, commander.dhtPort, () => {
+			if (commander.proxyPort) {
+				server.startProxy(commander.proxyPort, () => {
+					console.log('Node up! Please view http://' + commander.localIp + ':' + commander.dhtPort + '/' + identification + '/');
+				});
+			} else {
+				console.log('Node up! Please view http://' + commander.localIp + ':' + commander.dhtPort + '/' + identification + '/');
+			}
+		});
+	} else if (commander.entryHost && commander.entryProxyPort) {
+		console.log('Node up! Please view ' + commander.entryHost);
+	} else {
+		console.log('Invalid arguments! Please restart node with other arguments');
+		process.exit(1);
+	}
+});
+
+server.on('error', (err) => {
+	console.log('error:', err);
+});
