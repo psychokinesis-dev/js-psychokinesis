@@ -29,7 +29,7 @@ commander.on('--help', () => {
 	console.log('    $ psychokinesis test.psy -d 8181 -p 18181 -l 127.0.0.1');
 	console.log('');
 	console.log('    Start a public node with others :');
-	console.log('    $ psychokinesis test.psy -n -d 8181 -p 18181 -l 192.168.0.1 --entry-host 192,168.0.2 --entry-dht-port 8181');
+	console.log('    $ psychokinesis test.psy -n -d 8181 -p 18181 -l 192.168.0.1 --entry-host 192.168.0.2 --entry-dht-port 8181');
 	console.log('');
 	console.log('    Start a private node :');
 	console.log('    $ psychokinesis test.psy --entry-host 192.168.0.1 --entry-proxy-port 18181');
