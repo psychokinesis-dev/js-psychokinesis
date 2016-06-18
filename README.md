@@ -45,3 +45,9 @@ server.on('ready', () => {
 完成后即可使用浏览器访问 http://127.0.0.1:8181/publicnode.com/ 。
 
 更多示例可查看 examples 目录。
+
+## Docker
+### 打包
+```bash
+$ docker build -t covertness/psychokinesis .
+```
