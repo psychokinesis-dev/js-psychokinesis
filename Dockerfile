@@ -1,5 +1,5 @@
 # Set the base image
-FROM node:5
+FROM node:5.11.1
 
 # Author / Maintainer
 MAINTAINER Covertness - wuyingfengsui@gmail.com
