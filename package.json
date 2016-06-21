@@ -24,7 +24,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "commander": "^2.9.0",
-    "dht-store": "^1.1.0",
+    "dht-store": "^1.1.1",
     "dns-socket": "^1.4.1",
     "http2": "psychokinesis-dev/node-http2",
     "lodash": "^4.10.0",
