@@ -28,6 +28,7 @@
     "dns-socket": "^1.4.1",
     "http2": "psychokinesis-dev/node-http2",
     "lodash": "^4.10.0",
+    "node-cache": "^4.1.0",
     "reconnect-net": "^1.0.0"
   },
   "devDependencies": {
