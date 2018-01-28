@@ -24,11 +24,15 @@
   "dependencies": {
     "async": "^1.5.2",
     "commander": "^2.9.0",
+    "dateformat": "^3.0.2",
     "dht-store": "^1.1.1",
     "dns-socket": "^1.4.1",
     "http2": "psychokinesis-dev/node-http2",
+    "ioredis": "^3.2.2",
     "lodash": "^4.10.0",
-    "reconnect-net": "^1.0.0"
+    "multistream": "^2.1.0",
+    "reconnect-net": "^1.0.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.9",
